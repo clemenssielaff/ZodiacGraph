@@ -27,6 +27,9 @@
 *.out
 *.app
 
+# QtCreator user files
+*.pro.user
+
 # =========================
 # Operating System Files
 # =========================
@@ -73,3 +76,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Linux
+# =========================
+
+# backup file
+*.~

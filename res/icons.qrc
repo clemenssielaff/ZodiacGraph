@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>plus.svg</file>
+        <file>play.svg</file>
+        <file>bucket.svg</file>
+        <file>minus.svg</file>
+        <file>incoming.svg</file>
+        <file>questionmark.svg</file>
+        <file>outgoing.svg</file>
+    </qresource>
+</RCC>
