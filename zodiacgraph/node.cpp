@@ -29,8 +29,6 @@ static qreal angularDistance(qreal alpha, qreal beta);
 
 namespace zodiac {
 
-// TODO: core symbols and colors
-
 qreal Node::s_coreRadius = 25.;
 QColor Node::s_idleColor = QColor("#4b77a7");
 QColor Node::s_selectedColor = QColor("#62abfa");
