@@ -521,13 +521,6 @@ void createZodiacLogo(MainCtrl* mainCtrl)
     nodeCtrl29->addOutgoingPlug("plug_8");
     nodeCtrl29->addIncomingPlug("plug_9");
 
-    NodeCtrl* nodeCtrl36 = mainCtrl->createNode("Node 36");
-    nodeCtrl36->getNodeHandle().setPos(1669.65, 129.263);
-    nodeCtrl36->addIncomingPlug("plug");
-    nodeCtrl36->addOutgoingPlug("plug_2");
-    nodeCtrl36->addOutgoingPlug("plug_3");
-    nodeCtrl36->addIncomingPlug("plug_4");
-
     NodeCtrl* nodeCtrl41 = mainCtrl->createNode("Node 41");
     nodeCtrl41->getNodeHandle().setPos(1508.07, -402.153);
     nodeCtrl41->addOutgoingPlug("plug");
@@ -690,6 +683,9 @@ void createZodiacLogo(MainCtrl* mainCtrl)
     nodeCtrl18->addOutgoingPlug("plug_4");
     nodeCtrl18->addOutgoingPlug("plug_5");
 
+    NodeCtrl* nodeCtrl0 = mainCtrl->createNode("www.clemens-sielaff.com");
+    nodeCtrl0->getNodeHandle().setPos(1645.45, 445.963);
+
     nodeCtrl12->getNodeHandle().getPlug("plug_7").connectPlug(nodeCtrl13->getNodeHandle().getPlug("plug_3"));
     nodeCtrl16->getNodeHandle().getPlug("plug").connectPlug(nodeCtrl17->getNodeHandle().getPlug("plug_4"));
     nodeCtrl15->getNodeHandle().getPlug("plug_6").connectPlug(nodeCtrl14->getNodeHandle().getPlug("plug_4"));
@@ -704,7 +700,6 @@ void createZodiacLogo(MainCtrl* mainCtrl)
     nodeCtrl35->getNodeHandle().getPlug("plug_4").connectPlug(nodeCtrl32->getNodeHandle().getPlug("plug_6"));
     nodeCtrl1->getNodeHandle().getPlug("plug_4").connectPlug(nodeCtrl2->getNodeHandle().getPlug("plug_5"));
     nodeCtrl39->getNodeHandle().getPlug("plug_9").connectPlug(nodeCtrl40->getNodeHandle().getPlug("plug_3"));
-    nodeCtrl37->getNodeHandle().getPlug("plug_2").connectPlug(nodeCtrl36->getNodeHandle().getPlug("plug"));
     nodeCtrl30->getNodeHandle().getPlug("plug").connectPlug(nodeCtrl31->getNodeHandle().getPlug("plug_2"));
     nodeCtrl13->getNodeHandle().getPlug("plug_10").connectPlug(nodeCtrl14->getNodeHandle().getPlug("plug_6"));
     nodeCtrl23->getNodeHandle().getPlug("plug_6").connectPlug(nodeCtrl24->getNodeHandle().getPlug("plug_9"));
