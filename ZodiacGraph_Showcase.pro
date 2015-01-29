@@ -17,13 +17,18 @@
 #
 
 QT          += core gui widgets
-CONFIG      += c++11
+CONFIG      += c++11 static
 DEFINES     *= QT_USE_QSTRINGBUILDER
+
+static {
+    QT  += svg
+}
+
 unix {
     QMAKE_CXX = ccache g++
 }
 
-TARGET = ZodiacGraph_ExampleApp
+TARGET = ZodiacGraph_Showcase
 TEMPLATE = app
 
 
