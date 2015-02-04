@@ -39,11 +39,13 @@ release\ZodiacGraph_Showcase.exe
 
 # Documentation
 All code in the "zodiacgraph" subfolder is fully documented with doxygen comments.
-To generate the ZodiacGraph html documentation, use the doxyfile inside the "zodiacgraph" subfolder or visit: 
+To generate the ZodiacGraph html documentation, use the provided doxyfile or visit: 
 http://www.clemens-sielaff.com/zodiacgraph-doc/
 
 # Integration into your own project.
-The showcase application demonstrates how to integrate the ZodiacGraph into a 3rd party Qt application.
+Find below a short introduction on how to use the public interface.
+For a full example implementation, take a look at the showcase application.
+It demonstrates how to integrate the ZodiacGraph into a full-fledged 3rd party Qt application.
 
 Somewhere, for example in the constructor of your MainWidget, create the zodiac::Scene and zodiac::View:
 ~~~~
@@ -58,8 +60,7 @@ business logic and the ZodiacGraph UI:
 zodiac::SceneHandle sceneHandle = zodiac::SceneHandle(zodiacScene);
 ~~~~
 
-SceneHandes, NodeHandles and PlugHandles are thin wrapper around a pointer to a zodiac::Scene, zodiac::Node and  
-zodiac::Plug respectively.
+SceneHandes, NodeHandles and PlugHandles are thin wrapper around a pointer to a zodiac::Scene, zodiac::Node and zodiac::Plug respectively.
 They expose only high-level functionality, while keeping the user from leaving the graph in an inconsistent state.
 They also <b>do no imply ownership</b> of the object pointed to, we leave that to Qt and the ZodiacGraph internal 
 logic.
@@ -67,7 +68,8 @@ This means, you are free to create, copy, store and delete handles without affec
 All handles are connected to the QObject::destroyed()-signal of the object they point to and will become
 <i>invalid</i>, once the reference object is destroyed.
 Calling functions on invalid handles will raise Q_ASSERT errors in debug builds and do nothing in release builds.<br>
-See <i>Note on the use of Handles</i> on the usage of handles in a multi-threaded UI environment.
+See <i>Note on the use of Handles</i> at the end of this section, on the usage of handles in a multi-threaded UI 
+environment.
 
 Next, use the <i>sceneHandle</i> to create two Nodes in the Scene:
 ~~~~
@@ -75,7 +77,7 @@ zodiac::NodeHandle fooNode = sceneHandle.createNode("Foo");
 zodiac::NodeHandle barNode = sceneHandle.createNode("Bar");
 ~~~~
 
-Use the NodeHandles to create one Plug for each Node -- one incoming, the other outgoing:
+Then, through the NodeHandles, create one Plug for each Node -- one incoming, the other outgoing:
 ~~~~
 zodiac::PlugHandle zutPlug = fooNode.createOutgoingPlug("zut");
 zodiac::PlugHandle wegPlug = barNode.createIncomingPlug("weg");
@@ -87,7 +89,7 @@ zutPlug.connectPlug(wegPlug);
 ~~~~
 
 And that's it!
-You've just created a simple nodegraph consisting of two Nodes with one Plug each and a connection between them.<br>
+You've just created a simple nodegraph consisting of two Nodes with one Plug each and an Edge between them.<br>
 You can find all other functionality of the zodiac::SceneHandle, zodiac::NodeHandle and zodiac::PlugHandle classes in 
 the documentation.
 
@@ -126,3 +128,7 @@ panning.
 - Node Core Symbols<br>
 In addition to Node Colors and instead (?) of a title, one should be able to assign an icon to a node to ease the 
 understanding of its meaning in the graph.
+- Progress Animation<br>
+An optional feature to use when the process described by a Node has a measurable progress and a defined end.
+In that case, the arrows of all outgoing edges could wander from their outgoing start plug towards their incoming 
+end-plug to visualize the progress within the graph.
