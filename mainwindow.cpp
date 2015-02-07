@@ -20,7 +20,7 @@ void createZodiacLogo(MainCtrl* mainCtrl);
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setWindowTitle("ZodiacGraph - Example Application");
+    setWindowTitle("ZodiacGraph - Showcase Application");
 
     // create the main toolbar
     QToolBar* mainToolBar = new QToolBar(this);
@@ -89,7 +89,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::displayAbout()
 {
     QMessageBox aboutBox;
-    aboutBox.setWindowTitle("About the ZodiacGraph Sample Application");
+    aboutBox.setWindowTitle("About the ZodiacGraph Showcase Application");
     aboutBox.setText(
         "<h3>About this Application</h3>"
         "This example demonstrates how to use the <b>ZodiacGraph</b> both as a user and (on the source level) as a "

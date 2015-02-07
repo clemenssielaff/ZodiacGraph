@@ -23,7 +23,6 @@
 ///
 /// \brief Documentation for the mainwindow file.
 ///
-/// More bla here.
 ///
 
 #include <QMainWindow>
