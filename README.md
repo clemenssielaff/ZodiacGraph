@@ -1,5 +1,7 @@
-# ZodiacGraph
-A general-purpose, circular nodegraph GUI
+<p align="center">
+  <img align="center" src="https://github.com/clemenssielaff/ZodiacGraph/raw/master/doc/res/zodiac_text.png" alt="ZodiacGraph Logo">
+  A general-purpose, circular nodegraph GUI using Qt
+</p>
 
 # About
 The ZodiacGraph is a nodegraph user interface module with a unique visual and conceptual design.
