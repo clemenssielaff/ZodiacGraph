@@ -3,7 +3,7 @@
 # =========================
 
 # Documentation
-/doc
+/doc/html
 
 # QtCreator user files
 *.pro.user
