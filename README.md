@@ -1,5 +1,7 @@
 <p align="center">
-  <img align="center" src="https://github.com/clemenssielaff/ZodiacGraph/raw/master/doc/res/zodiac_text.png" alt="ZodiacGraph Logo">
+  <a href="http://vimeo.com/clemenssielaff/zodiacgraph" target="_blank">
+    <img src="http://www.clemens-sielaff.com/wp-content/uploads/vimeo_thumbnail.jpg" alt="ZodiacGraph Teaser Video"/>
+  </a>
   A general-purpose, circular nodegraph GUI using Qt
 </p>
 
