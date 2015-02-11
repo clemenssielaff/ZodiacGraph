@@ -109,14 +109,14 @@ public: // static methods
     ///
     /// \return Fill color.
     ///
-    inline static QColor getColor() {return s_brushColor;}
+    inline static QColor getColor() {return s_color;}
 
     ///
     /// \brief Sets a new color used to draw the Perimeter.
     ///
     /// \param [in] color   New color used to draw the Perimeter.
     ///
-    inline static void setColor(QColor color) {s_brushColor=color;}
+    inline static void setColor(QColor color) {s_color=color;}
 
     ///
     /// \brief The currently closest Plug to the mouse cursor of this Perimeter, if there is any -- otherwise
@@ -230,7 +230,7 @@ private: // static members
     ///
     /// \brief Color used to fill the Perimeter.
     ///
-    static QColor s_brushColor;
+    static QColor s_color;
 
     ///
     /// \brief The closest Plug to the position of the mouse cursor.

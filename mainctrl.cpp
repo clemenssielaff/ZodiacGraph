@@ -113,14 +113,14 @@ void MainCtrl::createDefaultNode()
 {
     NodeCtrl* newNode = createNode();
 
-    int plugCount = (qreal(qrand())/qreal(RAND_MAX))*12;
-    for(int i = 0; i < plugCount + 4; ++i){
-        if((qreal(qrand())/qreal(RAND_MAX))<0.5){
-            newNode->addIncomingPlug("plug");
-        } else {
-            newNode->addOutgoingPlug("plug");
-        }
-    }
+//    int plugCount = (qreal(qrand())/qreal(RAND_MAX))*12;
+//    for(int i = 0; i < plugCount + 4; ++i){
+//        if((qreal(qrand())/qreal(RAND_MAX))<0.5){
+//            newNode->addIncomingPlug("plug");
+//        } else {
+//            newNode->addOutgoingPlug("plug");
+//        }
+//    }
 
     newNode->setSelected(true);
 }

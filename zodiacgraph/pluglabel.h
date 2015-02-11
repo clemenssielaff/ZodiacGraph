@@ -125,6 +125,13 @@ public: // static methods
     static inline QColor getColor() {return s_color;}
 
     ///
+    /// \brief Defines the color to render the label text.
+    ///
+    /// \\param [in] color  Label color.
+    ///
+    static inline void setColor(const QColor& color) {s_color = color;}
+
+    ///
     /// \brief Distance from the label to the Plug in pixels.
     ///
     /// \return Plug to PlugLabel distance in pixels

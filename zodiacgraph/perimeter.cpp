@@ -13,7 +13,7 @@ namespace zodiac {
 
 qreal Perimeter::s_minRadius = 55;
 qreal Perimeter::s_maxOpacity = 0.5;
-QColor Perimeter::s_brushColor = QColor("#2b517d");
+QColor Perimeter::s_color = QColor("#2b517d");
 Plug* Perimeter::s_closestPlugToMouse = nullptr;
 bool Perimeter::s_mouseWasDragged = false;
 
@@ -43,7 +43,7 @@ void Perimeter::paint(QPainter* painter, const QStyleOptionGraphicsItem* option,
     painter->setClipRect(option->exposedRect);
 
     // draw perimeter
-    painter->setBrush(s_brushColor);
+    painter->setBrush(s_color);
     painter->setPen(Qt::NoPen);
     painter->drawEllipse(quadrat(m_radius));
 }

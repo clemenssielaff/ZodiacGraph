@@ -27,6 +27,7 @@
 #include <QGraphicsView>
 
 class QEvent;
+class QGestureEvent;
 class QMouseEvent;
 class QWheelEvent;
 
@@ -62,6 +63,8 @@ public: // methods
 
     ///
     /// \brief Displays the given Scene in this view.
+    ///
+    /// Reimplemented to force a zodiac::Scene to be viewed instead of a generic QGraphicsScene.
     ///
     /// \param [in] scene   Scene to view.
     ///
@@ -166,9 +169,31 @@ public: // static methods
 protected: // methods
 
     ///
+    /// \brief The main event handler for any QWidget.
+    ///
+    /// Implemented to pipe touch gestures to gestureEvent().
+    ///
+    /// \param [in] event   Qt event object.
+    ///
+    /// \return             True if the event was recognized, otherwise it returns false
+    ///
+    bool event(QEvent* event);
+
+    ///
+    /// \brief gestureEvent
+    ///
+    /// \param [in] event   Qt gesture event object.
+    ///
+    /// \return             True if the event was recognized, otherwise it returns false
+    ///
+    bool gestureEvent(QGestureEvent* event);
+
+    ///
     /// \brief Main event handler for the scrolling area of this QGraphicsView.
     ///
     /// \param [in] event   Qt event object.
+    ///
+    /// \return             True if the event was recognized, otherwise it returns false
     ///
     bool viewportEvent(QEvent* event);
 

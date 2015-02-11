@@ -7,6 +7,9 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QPanGesture>
+#include <QPinchGesture>
+#include <QScrollBar>
 #include <QWheelEvent>
 #if PRINT_REDRAW_SPEED
 #include <QElapsedTimer>
@@ -34,9 +37,11 @@ View::View(QWidget *parent)
     setRenderHints(QPainter::Antialiasing);
     setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
-    //setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    //setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     setDragMode(QGraphicsView::RubberBandDrag);
+
+    setAttribute(Qt::WA_AcceptTouchEvents);
+    grabGesture(Qt::PanGesture);
+    grabGesture(Qt::PinchGesture);
 }
 
 void View::updateStyle()
@@ -46,6 +51,70 @@ void View::updateStyle()
 
     // force a redraw for good measure
     resetCachedContent();
+}
+
+bool View::event(QEvent* event)
+{
+    event->accept();
+
+    switch(event->type()){
+
+        case QEvent::Gesture:
+            setDragMode(QGraphicsView::NoDrag);
+            return gestureEvent(static_cast<QGestureEvent*>(event));
+
+        case QEvent::TouchEnd:
+            setDragMode(QGraphicsView::RubberBandDrag);
+            break;
+
+        default:
+            break;
+    }
+    return QGraphicsView::event(event);
+}
+
+bool View::gestureEvent(QGestureEvent* event)
+{   
+    //
+    // pinch has precedence
+    if (QGesture *pinchEvent = event->gesture(Qt::PinchGesture)) {
+        QPinchGesture* pinch = static_cast<QPinchGesture*>(pinchEvent);
+
+        //
+        // only pinch if the fingers have already moved a significant amount
+        qreal totalScaleFactor = pinch->totalScaleFactor();
+        if((totalScaleFactor < 0.66) || (totalScaleFactor > 1.5)){
+            qreal zoomDelta = pinch->scaleFactor();
+            qreal resultZoom = m_zoomFactor * zoomDelta;
+            if(resultZoom > s_maxZoomFactor){
+                zoomDelta = s_maxZoomFactor / m_zoomFactor;
+            }else if(resultZoom < s_minZoomFactor){
+                zoomDelta = s_minZoomFactor / m_zoomFactor;
+            }
+
+            // scale the view
+            scale(zoomDelta,zoomDelta);
+            m_zoomFactor *= zoomDelta;
+
+            return true;
+        }
+    }
+
+    //
+    // pan
+    if (QGesture *panEvent = event->gesture(Qt::PanGesture)) {
+        QPanGesture* pan = static_cast<QPanGesture*>(panEvent);
+        QPointF delta = pan->delta();
+        qreal factor = (1.0 / m_zoomFactor) * 0.9;
+
+        QScrollBar* vScrollBar = verticalScrollBar();
+        vScrollBar->setValue(vScrollBar->value() - int(delta.y()/factor));
+
+        QScrollBar* hScrollBar = horizontalScrollBar();
+        hScrollBar->setValue(hScrollBar->value() - int(delta.x()/factor));
+    }
+
+    return true;
 }
 
 bool View::viewportEvent(QEvent *event)
