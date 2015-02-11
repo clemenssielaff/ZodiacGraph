@@ -5,17 +5,16 @@
 
 # About
 The ZodiacGraph is a nodegraph user interface module with a unique visual and conceptual design.
-It is written in C++, using C++11 features, on top of the Qt framework.
+It is written in modern C++, using C++11 features, on top of the Qt framework.
 Sources are released under the LGPL version 3.
 
 This repository contains the ZodiacGraph embedded in a showcase application to demonstrate the UI from a user's 
 perspective as well as to serve as an example for using the code in your own project.<br>
 The complete ZodiacGraph module is contained within the "zodiacgraph" subfolder and nested in the "zodiac" namespace.
 Code outside this folder is part of the showcase application and only serves demonstration purposes.
-Also, the application code is within the standard namespace.
 
 The ZodiacGraph is a pure user user interface that does not contain any business logic in itself.
-Therefore, it should fit most use-cases like require a nodegraph-like GUI.
+Therefore, it should fit most use-cases that require a nodegraph-like GUI.
 However, to fully utilize its potential, the showcase application does contain two controller classes that connect the
 nodegraph UI elements to the rest of the application
 
@@ -81,13 +80,13 @@ zodiac::NodeHandle barNode = sceneHandle.createNode("Bar");
 
 Then, through the NodeHandles, create one Plug for each Node -- one incoming, the other outgoing:
 ~~~~
-zodiac::PlugHandle zutPlug = fooNode.createOutgoingPlug("zut");
-zodiac::PlugHandle wegPlug = barNode.createIncomingPlug("weg");
+zodiac::PlugHandle outPlug = fooNode.createOutgoingPlug("fooOut");
+zodiac::PlugHandle inPlug = barNode.createIncomingPlug("barIn");
 ~~~~
 
 Lastly, connect the two Plugs:
 ~~~~
-zutPlug.connectPlug(wegPlug);
+outPlug.connectPlug(inPlug);
 ~~~~
 
 And that's it!
@@ -96,12 +95,12 @@ You can find all other functionality of the zodiac::SceneHandle, zodiac::NodeHan
 the documentation.
 
 <b>Note on the use of Handles</b>:<br>
-This method is far from being fool-proof.
+While the current implementation of handles works in the general case, it is far from being fool-proof.
 You should strife to organize your own code in such a way that you are never required to call isValid(),
 because you know which handles are valid at what point and when they become invalid.
-I must assume (even though I never encountered the problem), that using this approach in a multi-threaded environment
-is subject to race-conditions, where one handle causes the internal object to be destroyed and another handle to access
-it before the <i>destroyed()</i>-signal had a chance of being emitted.<br>
+I must assume (even though I never encountered the problem), that using handles in a multi-threaded environment would 
+be subject to race-conditions, where one handle causes the internal object to be destroyed and another handle to 
+access it before the <i>destroyed()</i>-signal had a chance of being emitted.<br>
 The alternative of using weak references and smart pointers would clash with the currently used model of ownership: 
 Qt's parent-child mechanism.
 Changing this model requires a ground-up rewrite of the architecture and as this has been a non-issue for me so far,
@@ -111,7 +110,7 @@ I feel save to postpone this issue for a future release 2.0.
 The ZodiacGraph is a standalone UI module of a larger application under active development.
 As such, I expect the code to remain alive and updated regularly for a fair amount of time to come.
 
-Contributions through pull requests are welcome and encouraged!
+<b>Contributions through pull requests are welcome and encouraged!</b>
 There are no official guidelines, but please try to be consistent with the existing code and make sure to update 
 and create documentation for your changes.
 
@@ -125,8 +124,8 @@ One of the first next steps is to add the ability to assign colors to individual
 - Node Groups<br>
 Combines a sub-network of nodes into an new node that exposes loose ends as input and outputs.
 - Touch Navigation<br>
-The test application is already a lot of fun on touch devices, but missing navigation functionality like zooming or 
-panning.
+Version 1.0 already contains rudimentary touch handling but I haven't got the necessary hardware to deploy (and test) a 
+serious touch-interface application.
 - Node Core Symbols<br>
 In addition to Node Colors and instead (?) of a title, one should be able to assign an icon to a node to ease the 
 understanding of its meaning in the graph.
