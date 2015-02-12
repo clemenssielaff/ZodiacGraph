@@ -126,7 +126,7 @@ One of the first next steps is to add the ability to assign colors to individual
 - Node Groups<br>
 Combines a sub-network of nodes into an new node that exposes loose ends as input and outputs.
 - Touch Navigation<br>
-Version 1.0 already contains rudimentary touch handling but I haven't got the necessary hardware to deploy (and test) a 
+Version 1.0.0 already contains rudimentary touch handling but I haven't got the necessary hardware to deploy (and test) a 
 serious touch-interface application.
 - Node Core Symbols<br>
 In addition to Node Colors and instead (?) of a title, one should be able to assign an icon to a node to ease the 
