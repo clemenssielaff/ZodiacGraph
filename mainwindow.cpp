@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     setWindowTitle("ZodiacGraph - Showcase Application");
+    setWindowIcon(QIcon(":/icons/zodiac_logo.png"));
 
     // create the main toolbar
     QToolBar* mainToolBar = new QToolBar(this);
