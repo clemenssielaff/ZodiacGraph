@@ -2,11 +2,11 @@
   <a href="http://vimeo.com/clemenssielaff/zodiacgraph" target="_blank">
     <img src="http://www.clemens-sielaff.com/wp-content/uploads/vimeo_thumbnail.jpg" alt="ZodiacGraph Teaser Video"/>
   </a>
-  A general-purpose, circular nodegraph GUI using Qt
+  A general-purpose, circular node graph GUI using Qt
 </p>
 
 # About
-The ZodiacGraph is a nodegraph user interface module with a unique visual and conceptual design.
+The ZodiacGraph is a node graph user interface module with a unique visual and conceptual design.
 It is written in modern C++, using C++11 features, on top of the Qt framework.
 Sources are released under the LGPL version 3.
 
@@ -16,9 +16,9 @@ The complete ZodiacGraph module is contained within the "zodiacgraph" subfolder 
 Code outside this folder is part of the showcase application and only serves demonstration purposes.
 
 The ZodiacGraph is a pure user user interface that does not contain any business logic in itself.
-Therefore, it should fit most use-cases that require a nodegraph-like GUI.
+Therefore, it should fit most use-cases that require a node graph-like GUI.
 However, to fully utilize its potential, the showcase application does contain two controller classes that connect the
-nodegraph UI elements to the rest of the application
+node graph UI elements to the rest of the application
 
 # Installation
 Building the code in this repository was tested on Windows and Linux (Ubuntu) with Qt 5.4.
@@ -92,7 +92,7 @@ outPlug.connectPlug(inPlug);
 ~~~~
 
 And that's it!
-You've just created a simple nodegraph consisting of two Nodes with one Plug each and an Edge between them.<br>
+You've just created a simple node graph consisting of two Nodes with one Plug each and an Edge between them.<br>
 You can find all other functionality of the zodiac::SceneHandle, zodiac::NodeHandle and zodiac::PlugHandle classes in 
 the documentation.
 
