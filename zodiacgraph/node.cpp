@@ -44,11 +44,11 @@ QEasingCurve Node::s_collapseCurve = QEasingCurve::OutQuad;
 QPen Node::s_linePen = QPen(QBrush(s_outlineColor), s_outlineWidth);
 bool Node::s_mouseWasDragged = false;
 
-Node::Node(Scene* scene, const QString &displayName)
+Node::Node(Scene* scene, const QString &displayName, const QUuid &uuid)
     : QGraphicsObject(nullptr)
     , m_scene(scene)
     , m_displayName(displayName)
-    , m_uniqueId(QUuid::createUuid())
+    , m_uniqueId(uuid.isNull() ? QUuid::createUuid() : uuid)
     , m_outgoingExpansionFactor(0.)
     , m_incomingExpansionFactor(0.)
     , m_perimeter(nullptr)

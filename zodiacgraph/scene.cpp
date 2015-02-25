@@ -39,9 +39,9 @@ Scene::~Scene()
     m_edgeGroupPairs.clear();
 }
 
-Node* Scene::createNode(const QString &name)
+Node* Scene::createNode(const QString &name, const QUuid& uuid)
 {
-    Node* newNode = new Node(this, name);
+    Node* newNode = new Node(this, name, uuid);
     m_nodes.insert(newNode);
     addItem(newNode);
     return newNode;

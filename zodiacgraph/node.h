@@ -99,8 +99,9 @@ public: // methods
     ///
     /// \param [in] scene       Scene managing this Node.
     /// \param [in] displayName Display name of this Node, does not have to be unique.
+    /// \param [in] uuid        (optional) The unique identifier of this Node.
     ///
-    explicit Node(Scene* scene, const QString& displayName);
+    explicit Node(Scene* scene, const QString& displayName, const QUuid& uuid = QUuid());
 
     ///
     /// \brief The unique identifier of this Node.

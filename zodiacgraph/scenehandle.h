@@ -26,6 +26,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QUuid>
 
 #include "nodehandle.h"
 
@@ -116,10 +117,11 @@ public: // methods
     /// \brief Creates and adds a new Node to the zodiac graph.
     ///
     /// \param [in] name    Display name of the new Node.
+    /// \param [in] uuid    (optional) The unique identifier of this Node.
     ///
     /// \return             Handle of the new Node.
     ///
-    NodeHandle createNode(const QString& name);
+    NodeHandle createNode(const QString& name, const QUuid& uuid = QUuid());
 
     ///
     /// \brief Returns all Node%s managed by the Scene.

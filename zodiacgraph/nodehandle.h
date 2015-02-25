@@ -111,6 +111,13 @@ public: // methods
     bool remove();
 
     ///
+    /// \brief Queries and returns the id of the Node.
+    ///
+    /// \return Unique id of the Node.
+    ///
+    const QUuid &getId() const;
+
+    ///
     /// \brief Queries and returns the name of the Node.
     ///
     /// \return Name of the Node.

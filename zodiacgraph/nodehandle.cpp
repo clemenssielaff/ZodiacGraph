@@ -55,6 +55,18 @@ bool NodeHandle::remove()
     }
 }
 
+const QUuid& NodeHandle::getId() const
+{
+#ifdef QT_DEBUG
+    Q_ASSERT(m_isValid);
+#else
+    if(!m_isValid){
+        QUuid();
+    }
+#endif
+    return m_node->getUniqueId();
+}
+
 QString NodeHandle::getName() const
 {
 #ifdef QT_DEBUG

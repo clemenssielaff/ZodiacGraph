@@ -28,6 +28,7 @@
 ///
 
 #include <QGraphicsScene>
+#include <QUuid>
 #include <QSet>
 
 namespace zodiac {
@@ -73,10 +74,11 @@ public: // methods
     /// \brief Creates and adds a new Node to the graph.
     ///
     /// \param [in] name    Name of the new Node.
+    /// \param [in] uuid    (optional) The unique identifier of this Node.
     ///
     /// \return             The new Node.
     ///
-    Node* createNode(const QString& name);
+    Node* createNode(const QString& name, const QUuid& uuid = QUuid());
 
     ///
     /// \brief Removes an existing Node from this Scene.
