@@ -4,6 +4,8 @@
 #include "node.h"
 #include "plug.h"
 
+#include <cmath>
+
 namespace zodiac {
 
 qreal BezierEdge::s_maxCtrlDistance = 150.;
@@ -32,7 +34,7 @@ void BezierEdge::placeArrowAt(qreal fraction)
     qreal pos = qMin(1.0-VERY_SMALL_DELTA, qMax(0.0, fraction));
     QPointF edgeCenter = m_path.pointAtPercent(pos);
     QPointF edgeDirection = m_path.pointAtPercent(qMin(pos+VERY_SMALL_DELTA, 1.))-edgeCenter;
-    m_arrow->setTransformation(edgeCenter, atan2(edgeDirection.y(), edgeDirection.x()));
+    m_arrow->setTransformation(edgeCenter, std::atan2(edgeDirection.y(), edgeDirection.x()));
 }
 
 void BezierEdge::updateShape()
