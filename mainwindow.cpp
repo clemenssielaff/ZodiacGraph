@@ -108,7 +108,7 @@ void MainWindow::displayAbout()
 
         "<h3>License</h3>"
         "<b>ZodiacGraph</b> is developed by <a href=\"http://www.clemens-sielaff.com\" title=\"clemens-sielaff.com\">Clemens Sielaff</a> "
-        "and released under the terms of the <a href=\"https://www.gnu.org/licenses/lgpl-3.0.txt\" title=\"GNU Lesser General Public License Version 3\">LGPLv3</a>."
+        "and released under the terms of the <a href=\"https://opensource.org/licenses/MIT\" title=\"MIT License</a>."
 
         "<h3>Icons</h3>"
         "Icons from <a href=\"http://www.flaticon.com\" title=\"Flaticon\">www.flaticon.com</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\">CC BY 3.0</a><br>"

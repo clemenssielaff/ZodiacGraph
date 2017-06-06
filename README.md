@@ -8,7 +8,7 @@
 # About
 The ZodiacGraph is a node graph user interface module with a unique visual and conceptual design.
 It is written in modern C++, using C++11 features, on top of the Qt framework.
-Sources are released under the LGPL version 3.
+Sources are released under the MIT license.
 
 This repository contains the ZodiacGraph embedded in a showcase application to demonstrate the UI from a user's 
 perspective as well as to serve as an example for using the code in your own project.<br>
