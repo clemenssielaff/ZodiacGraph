@@ -119,7 +119,7 @@ and create documentation for your changes.
 If you happen to encounter a bug or any missing / outdated / wrong documentation, please report it in the issues
 section.
 
-# Future Features
+# Future Features (except probably not, see below)
 - Node Colors<br>
 You can already alter the global appearance of the ZodiacGraph.
 One of the first next steps is to add the ability to assign colors to individual nodes or node-groups.
@@ -135,3 +135,10 @@ understanding of its meaning in the graph.
 An optional feature to use when the process described by a Node has a measurable progress and a defined end.
 In that case, the arrows of all outgoing edges could wander from their outgoing start plug towards their incoming 
 end-plug to visualize the progress within the graph.
+
+# Disclaimer
+It's now 2017 and I haven't done any substantial work on the project for over two years, so I think it's fair to say that I probably won't implement any major changes any time soon. I relicensed the project under the MIT license to make it truly open-source and just gonna leave it out there for now.
+If you find the ZodiacGraph helpful or just nice to look at, I am always happy to hear feedback - especially if you end up using it (or some derivate of it) in one of your own projects!
+
+So long,
+ -Clemens
